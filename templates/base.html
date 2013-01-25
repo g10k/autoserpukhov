@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+{% load staticfiles %}
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : HeadPiece
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20121222
+-->
+<html>
+    <head>
+    <title>{% block title %}HeadPiece by FCT{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    {# Ко всем шаблонам от base подключен jQuery#}
+    <script type='text/javascript' src="{% static 'js/jquery-1.8.3.min.js' %}" type></script>
+    {# Ко всем шаблонам от base подключен default.css #}
+    <link href= "{% static 'css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
+    {% block css %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+    </head>
+<body>
+
+<div id="wrapper" class="container">
+	<div id="header">
+        {% block header %}
+		<div id="logo">
+			<h1><a href="#">Починись-ка</a></h1>
+			<p>Тут что-то умное о починке автомобиля. Типа починка автомобиля, этот как ветер в поле - всегда возможен.</p>
+		</div>
+        {% endblock %}
+	</div>
+    <div id="menu">
+    {% block menu %}
+		<ul>
+			<li class="first"><a href="/" accesskey="1" title="">Главная</a></li>
+			<li><a href="{% url places %}" accesskey="2" title="">Места</a></li>
+            <li><a href="#" accesskey="3" title="">Активные клиенты</a></li>
+			<li><a href="#" accesskey="4" title="">О сайте</a></li>
+            <li><a href="{% url guess_button %}">Угадай-ка</a></li>
+		</ul>
+    {% endblock %}
+	</div>
+	<div id="page">
+	    <div id="content">
+          {% block content %}
+
+         {% endblock %}
+		</div>
+        <div id="sidebar">
+        {% block sidebar %}
+		    <h2>Тут будут последние новости</h2>
+            <ul class="style1">
+                <li class="first">
+                    <p class="date"><a href="#"> 8 января 2013</a></p>
+                    <p>Скачал этот шаблон и отредактировал</p>
+                </li>
+                <li class="second">
+                    <p class="date"><a href="#"> 9 января 2013</a></p>
+                    <p>Унаследовал шаблоны. Создаю загрузку данных, чтобы при последующих изменениях БД.
+                        Мог легко удалить таблицу, создать новую и загрузить приготовленные данные</p>
+                    <p>Создал отдельную табличку для семейств автомобилей. Для загрузки данных теперь используется декоратор.
+                        Нужно сделать две базы знаний по поломкам для 12 и Фольца.
+                        Прикрутить тесты.
+                    </p>
+                </li>
+                <li class='third'>
+                    <p class='date'><a href="#">10 января 2013</a> </p>
+                    <p>Создал несколько фактов для БЗ, до конца не заполнял. Создал основу для вьюх.
+                        задампил данные, которые закинул. Нужно проверить manage.py loaddata
+                    </p>
+                    <p>Из-за того, что отвалился google и не находился css fonts.googleapis.com, страницы загружались 12 секунд. </p>
+                </li>
+            </ul>
+        {% endblock %}
+        </div>
+	</div>
+	<div id="footer">
+    {% block footer %}
+		<p>Копирайт, дробит, губит и рубит. Говорит что ты всегда прав.</p>
+    {% endblock %}
+	</div>
+</div>
+</body>
+</html>

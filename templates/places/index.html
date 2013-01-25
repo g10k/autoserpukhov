@@ -1,0 +1,148 @@
+{% extends "base_new.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block title %} АвтоМеста {% endblock %}
+{% block content %}
+
+    <div class="row-fluid">
+
+        <div class="span12">
+            <ul class="inline">
+                <li>Сортировать по:</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="path/to/page.html">Типу <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#">По типу и по рейтингу</a></li>
+                        <li><a tabindex="-1" href="#">Только по типу</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Рейтингу <b class="caret"></b></a></li>
+                <li class="dropdown"><a href="#">Названию <b class="caret"></b></a></li>
+            </ul></div>
+
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            {% for autocenter in autocenters %}
+            <div class="media thumbnail">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-polaroid" src="{% static autocenter.autocenterimage_set.all.0 %}" width='180' height='160'>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ autocenter.name }}</h4>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <address>{{ autocenter.address }}<br>
+                        {{ autocenter.telephone }}
+                    </address>
+                    <p style="margin-top:-15px;">
+                        {{ autocenter.about|truncatechars:100 }}
+                    </p>
+                    <button class="btn btn-mini" type="button"><a href="{{ autocenter.get_absolute_url }}">Подробнее</a></button>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="media thumbnail">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-polaroid" src="http://stobravo.ru/uploads/posts/2012-10/thumbs/1350538316_aa7g-05.03.jpg" >
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">WV Авто, автосервис</h4>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107<br>
+                        Тел: (123) 456-7890
+                    </address>
+                    <p style="margin-top:-15px;">Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rh.</p>
+                    <button class="btn btn-mini" type="button">Подробнее</button>
+
+                </div>
+            </div>
+
+            <div class="media thumbnail">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-polaroid" src="http://stobravo.ru/uploads/posts/2012-10/thumbs/1350538316_aa7g-05.03.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">WV Авто, автосервис</h4>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107<br>
+                        Тел: (123) 456-7890
+                    </address>
+                    <p style="margin-top:-15px;">Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rh.</p>
+                    <button class="btn btn-mini" type="button">Подробнее</button>
+
+                </div>
+            </div>
+
+            <div class="media thumbnail">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-polaroid" src="http://stobravo.ru/uploads/posts/2012-10/thumbs/1350538316_aa7g-05.03.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">WV Авто, автосервис</h4>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107<br>
+                        Тел: (123) 456-7890
+                    </address>
+                    <p style="margin-top:-15px;">Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rh.</p>
+                    <button class="btn btn-mini" type="button">Подробнее</button>
+
+                </div>
+            </div>
+
+            <div class="media thumbnail">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-polaroid" src="http://stobravo.ru/uploads/posts/2012-10/thumbs/1350538316_aa7g-05.03.jpg">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">WV Авто, автосервис</h4>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107<br>
+                        Тел: (123) 456-7890
+                    </address>
+                    <p style="margin-top:-15px;">Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rhoncus puru condimentum gravida metus Sed eu leo orci, in rh.</p>
+                    <button class="btn btn-mini" type="button">Подробнее</button>
+
+                </div>
+            </div>
+
+
+            <div class="media">
+
+            </div>
+
+
+        </div>
+
+        <div class="span4">
+            <div class="well"><h4>Последние отзывы:</h4>
+                <ul class="unstyled">
+                    <li><p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> <a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus...</a> (<i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто</strong></a>) </p></li>
+                    <li><p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> <a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus...</a> (<i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто</strong></a>) </p></li>
+                    <li><p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> <a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus...</a> (<i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто</strong></a>) </p></li>
+                </ul>
+                <button class="btn" type="button">Все отзывы</button>
+            </div>
+
+
+            <div class="well"><h4>Новые места:</h4>
+                <ul class="unstyled">
+                    <li><i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто, автосервис</strong></a><a class="pull-right" href="#"><i class="icon-pencil" title="оставить отзыв"></i></a> <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107</li>
+                    <li><i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто, автосервис</strong></a><a class="pull-right" href="#"><i class="icon-pencil" title="оставить отзыв"></i></a> <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107</li>
+                    <li><i class="icon-wrench"></i> <a href="#"><strong>Борисово-авто, автосервис</strong></a><a class="pull-right" href="#"><i class="icon-pencil" title="оставить отзыв"></i></a> <address> 795 Folsom Ave, Suite 600, San Francisco, CA 94107</li>
+                </ul></div>
+
+
+        </div>
+
+    </div>
+    <div class="page-buffer"></div>
+
+
+
+
+
+{% endblock %}

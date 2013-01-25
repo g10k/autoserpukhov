@@ -1,0 +1,46 @@
+{% extends "base_new.html" %}
+{% load threadedcomments_tags %}
+{% load comments %}
+
+{% if title %}{% block title %}{{ title }}{% endblock%}{% endif %}
+{% block content %}
+    <h1>Описание местечка</h1>
+    <h2>{{ autocenter }}, {{ autocenter.address }}</h2>
+    <p>Теги:{% for tag  in autocenter.maintenance.all %}<a href="#">{{ tag }}</a>{% endfor %}</p>
+
+    {{ autocenter.about }}
+
+
+
+    {% render_comments autocenter %}
+
+{#    {% get_comment_list for autocenter as comment_list%}#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    {% for comment in comment_list|fill_tree|annotate_tree %}#}
+{#        {% place_comment comment %}#}
+{#    {% endfor %}#}
+{#    {% get_comment_form for autocenter as form %}#}
+{##}
+{#    <table>#}
+{#        <a name="new_comment"></a>#}
+{#        <form action="/comments/post/" method="post">{% csrf_token %}#}
+{#            {{ form }}#}
+{#            <tr>#}
+{#                <td colspan="2">#}
+{#                    <input type="hidden" name="next" value="{{ autocenter.get_absolute_url }}" />#}
+{#                    <input type="submit" name="submit" value="Post">#}
+{#                    <input type="submit" name="preview" value="Preview">#}
+{#                </td>#}
+{#            </tr>#}
+{#        </form>#}
+{#    </table>#}
+{##}
+
+
+{% endblock %}

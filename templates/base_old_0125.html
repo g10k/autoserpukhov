@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}АвтоСерпухов (beta) v1.0{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Evgeniy Milakin, Sergey Vlasov">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src={% static "js/bootstrap.js" %}></script>
+{% block extrastyle %}{% endblock %}
+{% block extrahead %}{% endblock %}
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+          <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                       <link rel="shortcut icon" href="../assets/ico/favicon.png"> -->
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <div class="row">
+            <div class="span12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <h1>АвтоСерпухов <span class="label label-info" style="vertical-align:top">beta</span></h1>
+            </div>
+
+
+            <div class="span5 offset1">
+                <ul class="nav nav-pills pull-right">
+                    {% block menu %}
+                    <li class="active">
+                        <a href="#">Главная</a>
+                    </li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Добавить место</a></li>
+                    <li><a href="#">О проекте</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span6">
+                <h4 class="muted">{% block undertitle %}облегчаем жизнь автомобилистам с 2013 года.{% endblock %}</h4>
+            </div>
+
+            <div class="span2 offset4">
+                <ul class="inline pull-right">
+                    {% block social %}
+                    <li><img src="http://icons.iconarchive.com/icons/icojam/blueberry-basic/32/rss-icon.png"></li>
+                    <li><img src="http://www.ti.com/ww/ru/images/follow-icon-twitter.gif"></li>
+                    <li><img src="http://chilli-travel.ru/static/img/icon_vkontakte.png"> </li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <hr>
+    {% block content %}
+    {% endblock %}
+
+</div>
+{% block footer %}
+<footer class="footer" style="background-color:#c2c2c2;">
+    <div class="container" style="margin:0 auto;">
+        <div class="row">
+            <div class="span3">
+                <h4>Новости проекта:</h4>
+                <ul>
+                    <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                    <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                    <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+                </ul>
+
+            </div>
+            <div class="span3">
+                <h4>Новые места:</h4>
+                <ul>
+                    <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                    <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                    <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+                </ul>
+
+                </ul>
+            </div>
+            <div class="span3">
+                <h4>Последние комментарии:</h4>
+                <ul>
+                    <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                    <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                    <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+                </ul>
+
+            </div>
+
+            <div class="span3">
+                <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>
+
+            </div>
+
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+
+
+</body>
+</html>

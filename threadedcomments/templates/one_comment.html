@@ -1,0 +1,24 @@
+{% ifchanged comment.parent_id %}{% else %}
+    </li>
+{% endifchanged %}
+
+{% if not comment.open and not comment.close %}
+    </li>
+{% endif %}
+
+{% if comment.open %}
+    <ul>
+{% endif %}
+
+<li{% if comment.last %} class="last"{% endif %}>
+    <div>
+        <a name='#c{{ comment.pk }}'>{{ comment.user_name }}</a>,
+            {{ comment.submit_date }}
+                <a class='new-comment' href="#new_comment" data-id="{{ comment.pk }}">Ответить</a>
+        <p>{{ comment.comment }}</p>
+        {% if comment.added_path %} ADDED {% endif %}
+    </div>
+    {% for close in comment.close %}
+        </li>
+        </ul>
+    {% endfor %}

@@ -1,0 +1,21 @@
+{% if repairs %}
+<table>
+    <thead>
+    <tr>
+        <th>Наименование работ</th> <th>ВАЗ</th> <th>Иномарки</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for row in repairs %}
+        <tr>
+            <td>{{row.name}}</td>
+            <td>{{ row.price }}</td>
+            <td>{{ row.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+{% else %}
+ <span class = 'error'>В базе данных отсутствуют записи о ценах на услуги автомастерской</span>
+{% endif %}

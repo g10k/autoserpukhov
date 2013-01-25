@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Угадай кнопку!!!</title>
+    {% load staticfiles %}
+    <script src={% static 'js/jquery-1.8.3.min.js' %}></script>
+    <script>
+        $(function(){
+            $("button#go").click(function(){
+                var count = $("input[name='count']").attr("value");
+                $.getJSON("{% url guess_button %}", {"count":count},function(data){
+                    console.log(data);
+                    if ("error" in data) {
+                     return;
+                    } else {
+                        createButtons(data["count"]);
+                    }
+                });
+            });
+
+            function createButtons(elements){
+                console.log(elements);
+                for (var i=1; i <= elements; i++){
+                    console.log(i);
+                    $("<button></button>",{
+                        "id":i,
+                        "value":i,
+                        "text":i
+                    }).appendTo("body");
+                }
+
+            };
+
+            $("button").live('click',function(){
+                alert($(this).attr('value'));
+            });
+
+        });
+    </script>
+</head>
+<body>
+ <input type="text" name="count"> Количество
+ <button id="go">Создать!</button>
+</body>
+</html>
