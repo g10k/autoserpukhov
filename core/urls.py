@@ -30,7 +30,10 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+     (r'^loginza/', include('loginza.urls')),
+     url(r'^users/', include('users.urls')),
      url(r'^admin/', include(admin.site.urls)),
+
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -8,7 +8,6 @@ def abs_path(dir_name):
     """ Для static, media, и прочего  == "D:\\sites\\repairit\\dir_name"
         Корень проекта + dir_name
     """
-    return os.path.join("/home/users1/g/g10k/django/autoserpukhov/", dir_name)
     return os.path.join(os.path.abspath(""),dir_name)
 
 ADMINS = (
@@ -20,7 +19,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': abs_path("core/repairit.db"),                      # Or path to database file if using sqlite3.
+        'NAME': 'core\\repairit.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -35,7 +34,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Russia/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html

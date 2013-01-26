@@ -21,6 +21,7 @@ from autocenter.models import AutoCenter, AutoCenterType
 
 @render_to("index.html")
 def index(request):
+
     repairs = AutoRepair.objects.all()
     title = u"АвтоСерпухов"
     autocenters = AutoCenter.objects.all()
