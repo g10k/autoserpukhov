@@ -11,8 +11,12 @@
     {{ autocenter.about }}
 
 
-
-    {% render_comments autocenter %}
+    {% if user.is_authenticated %}
+       <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+    {% else %}
+       <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+    {% render_comments autocenter %} <!--- TODO: Сделать форму комментария над списком --->
     <div id="mc-container"></div>
     <script type="text/javascript">
         var mcSite = '16449';

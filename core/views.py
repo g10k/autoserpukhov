@@ -4,6 +4,7 @@ from random import randint
 from functools import wraps
 
 from django.shortcuts  import render_to_response
+from django.views.decorators.csrf import csrf_exempt
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.utils import simplejson
@@ -18,10 +19,9 @@ from autocenter.models import AutoCenter, AutoCenterType
 
 
 
-
+@csrf_exempt
 @render_to("index.html")
 def index(request):
-
     repairs = AutoRepair.objects.all()
     title = u"АвтоСерпухов"
     autocenters = AutoCenter.objects.all()
@@ -54,4 +54,3 @@ def guess_button(request):
         return HttpResponse(simplejson.dumps({"count":count}),mimetype="application/json")
 
     return {}
-

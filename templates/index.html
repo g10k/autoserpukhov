@@ -148,8 +148,8 @@
     {% if user.is_authenticated %}
         Добро пожаловать, {{ user }}
     {% else %}
-        {% loginza_button "Войти через Loginza"  %}
-        {% loginza_iframe %}
+       {% loginza_button "Войти через Loginza"  %} 
+<!---         {% loginza_iframe %} --->
     {% endif %}
 
 
