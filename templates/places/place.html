@@ -1,20 +1,52 @@
-{% extends "base_new.html" %}
+{% extends "base.html" %}
 {% load threadedcomments_tags %}
 {% load comments %}
+{% load static %}
+{% load staticfiles %}
+{% load loginza_widget %}
 
-{% if title %}{% block title %}{{ title }}{% endblock%}{% endif %}
+{% block title %}{{ title }}{% endblock%}
+{% block extrastyle %}
+    <link href='{% static "css/jquery.rating.css" %}' rel='stylesheet'>
+{% endblock %}
+{% block extrahead %}
+    <script src={% static "js/jquery.rating.js" %}></script>
+    <script>
+        $(function(){
+            $(".star").rating();
+        })
+    </script>
+{% endblock %}
 {% block content %}
     <h1>Описание местечка</h1>
     <h2>{{ autocenter }}, {{ autocenter.address }}</h2>
     <p>Теги:{% for tag  in autocenter.maintenance.all %}<a href="#">{{ tag }}</a>{% endfor %}</p>
+    <p>Удобство</p>
+    <p>Голосов:{{ autocenter.kachestvo.votes }}, набрано баллов {{ autocenter.kachestvo.score }}</p>
 
     {{ autocenter.about }}
 
 
+
     {% if user.is_authenticated %}
-       <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+
+      {% get_comment_form for autocenter as form %}
+
+        <table>
+            <form action="/comments/post/" method="post">{% csrf_token %}
+                {{ form }}
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="next" value="{{ autocenter.get_absolute_url }}" />
+                        <input type="submit" name="submit" value="Отправить">
+{#                        <input type="submit" name="preview" value="Preview">#}
+                    </td>
+                </tr>
+            </form>
+            <a name="new_comment"></a>
+        </table>
     {% else %}
-       <p>Welcome, new user. Please log in.</p>
+       <p>Оставить отзыв:{% loginza_button "Чтобы оставить отзыв авторизируйтесь через соц сети"  %}</p>
     {% endif %}
     {% render_comments autocenter %} <!--- TODO: Сделать форму комментария над списком --->
     <div id="mc-container"></div>

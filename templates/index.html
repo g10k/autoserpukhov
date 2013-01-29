@@ -1,4 +1,4 @@
-{% extends "base_new.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 {% load loginza_widget %}
 {% block title %}{{ title }}{% endblock %}
@@ -16,13 +16,17 @@
                         .add("mapTools")
                         .add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
 
-                placeMarkIcons = {
-                        "1":"twirl#workshopIcon",
-                        "2":"twirl#carIcon",
-                        "3":"twirl#dryCleanerIcon",
-                        "4":"twirl#tireIcon",
-                        "5":"twirl#gasStationIcon"
+                placeMarkIcons = { {% comment %} Пока- что проще связать id автоцентра с видом метки разрозненно {% endcomment %}
+                        "1":"twirl#workshopIcon", // Автосервис
+                        "2":"twirl#carIcon", // Автостоянка
+                        "3":"twirl#dryCleanerIcon", // Мойка
+                        "4":"twirl#tireIcon", // Шиномонтаж
+                        "5":"twirl#gasStationIcon", // АЗС
+                        "6":"twirl#barberShopIcon", // Тюнинг
+                        "7":"twirl#storehouseIcon", // Автострахование
+                        "8":"twirl#shopIcon" // Автомагазин
                     };
+
                 // функция прикрепляем каждой ссылке свою коллекцию geoObjectCollection,
                 // myCollection сохраняется внутри каждого callback.
                 // myCollection будет для каждой ссылки своя, и выбор происходит в зависимости от вызываемой функции
@@ -34,11 +38,12 @@
                     $(element).click(function(){
                         myMap.geoObjects.each(function(collection){ myMap.geoObjects.remove(collection)});
                         myMap.geoObjects.add(myCollection);
+                        $(this).toggleClass("active");
                     })
                 }
 
                 // Создаем коллекции и заполняем их
-                {% for type in autocentertypes %}
+                {% for type in autocentertypes %} {% comment %} TODO Более грамотно сделать генерирование JS для добавления коллекций{% endcomment %}
                 {
                     var pk = "{{type.pk}}";
                     var myCollection = new ymaps.GeoObjectCollection({},{ preset:placeMarkIcons[pk]});
@@ -47,6 +52,7 @@
                             balloonContent:"{{autocenter.full_name}}"
                         }));
                     {% endfor %}
+                    myMap.geoObjects.add(myCollection);
                     toggle(myCollection,$("a[data-id="+pk+"]"));
                 };
                 {% endfor %}
@@ -57,11 +63,11 @@
 {% endblock  %}
 
 {% block content %}
-    <div class="row-fluid">
+    <div class="row-fluid">{% comment %} TODO daron написать класс active для ссылок, чтобы было видно, какие значки отображаются, какие нет.{% endcomment %}
 
         <div class="span12">
             <ul class="inline">
-                <li>Найти на карте:</li>
+                <li>Найти на карте:</li> {% comment %} TODO: g10k Сделать расставление data-id из БД{% endcomment %}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="path/to/page.html">СТО <b class="caret"></b></a>
                     <ul class="dropdown-menu">

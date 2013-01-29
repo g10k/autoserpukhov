@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 
+from djangoratings.fields import RatingField
 # Create your models here.
 
 class AutoCenterType(models.Model):
@@ -57,6 +58,10 @@ class AutoCenter(models.Model):
     about = models.TextField(u"Подробнее",blank=True)
     longitude = models.FloatField(u"Долгота")
     latitude = models.FloatField(u"Широта")
+    worktime = models.CharField(u"Время работы",max_length=180)
+    kachestvo = RatingField(range=5,verbose_name=u"Качество")
+    udobstvo = RatingField(range=5,verbose_name=u"Удобство")
+    stoimost = RatingField(range=5,verbose_name=u"Стоимость услуг")
 
     objects = AutoCenterManager()
 

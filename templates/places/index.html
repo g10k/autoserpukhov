@@ -1,7 +1,18 @@
-{% extends "base_new.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load staticfiles %}
 {% block title %} АвтоМеста {% endblock %}
+{% block extrastyle %}
+    <link href='{% static "css/jquery.rating.css" %}' rel='stylesheet'>
+{% endblock %}
+{% block extrahead %}
+    <script src={% static "js/jquery.rating.js" %}></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".starz").rating();
+        })
+    </script>
+{% endblock %}
 {% block content %}
 
     <div class="row-fluid">
@@ -32,7 +43,18 @@
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">{{ autocenter.name }}</h4>
-                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (<a href="#">14 отзывов</a>)</p>
+                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                        (<a href="#">{{ autocenter.kachestvo.votes }} отзыва</a>)</p>
+                    <p>
+                       <select name="star{{ autocenter.pk }}">
+                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
+                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
+                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
+                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
+                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
+                       </select>
+
+                    </p>
                     <address>{{ autocenter.address }}<br>
                         {{ autocenter.telephone }}
                     </address>

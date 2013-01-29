@@ -1,37 +1,144 @@
+{% load static %}
 {% load loginza_widget %}
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Loginza Test</title>
-</head>
+    <title>{% block title %}АвтоСерпухов (beta) v1.0{% endblock %}</title> <!--- TODO daron Сделать ссылкой --->
+    <meta name='loginza-verification' content='3b9fb45a018db64d6ed28e2aa8300b59' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Evgeniy Milakin, Sergey Vlasov">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
 
-<body style="font-size:20px; text-align:center;">
-	{% block body %}
-		{% if user.is_authenticated %} 
-			Добро пожаловать, <strong>{{ user }}</strong>!<br><br> 
-			<a href="/users/logout/?next=%2F">Выйти?</a>
-		{% else %}
-		<div>
-			<strong>loginza_iframe:</strong><br>
-			{% loginza_iframe %} 
-		</div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src={% static "js/bootstrap.js" %}></script>
+{% block extrastyle %}{% endblock %}
+{% block extrahead %}{% endblock %}
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-		<div>
-			<strong>loginza_button:</strong><br>
-			{% loginza_button "Войти, используя соцсети" %}
-		</div>
+    <!-- Fav and touch icons -->
+<!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png"> -->
+  </head>
+  <body>
+    <div class="page-wrapper">
+    <div class="container">
 
-			<br><br>
-		<div>
-			<strong>loginza_icons:</strong><br>
-			{% loginza_icons "Войти, используя соцсети" %}
-		</div>
-		
-			<br><br>
-		<div>
-			<strong>loginza_string:</strong><br>
-			{% loginza_string "Войти, используя соцсети" %}
-		</div>
-		{% endif %} 
-	{% endblock %}
-</body>
+      <header>
+        <div class="row">
+        <div class="span12">
+                &nbsp; 
+        </div>
+      </div>
+<div class="row">
+        <div class="span6">
+                <h1>АвтоСерпухов <span class="label label-info" style="vertical-align:top">beta</span></h1> 
+        </div>
+
+
+        <div class="span6">
+        <ul class="nav nav-pills pull-right">
+                    {% block menu %}
+          <li class="active">
+            <a href="index.html">Главная</a>
+          </li>
+          <li><a href="{% url places %}">Каталог</a></li>
+          <li><a href="#">Добавить место</a></li>
+          <li><a href="#">О проекте</a></li>
+          {% if user.is_authenticated %}<li><a>Вы вошли как {{ user }}</a></li>/<a href="/users/logout">Выйти</a>
+              {% else %}
+              {% loginza_button "Войти"  %}
+          {% endif %}
+                    {% endblock %}
+        </ul>
+      </div>
+</div>
+        
+<div class="row">
+  <div class="span8">
+                <h4 class="muted">{% block undertitle %}облегчаем жизнь автомобилистам с 2013 года.{% endblock %}</h4>
+  </div>
+
+  <div class="span4">
+    <ul class="inline pull-right">
+                    {% block social %}
+         <li><img src="http://icons.iconarchive.com/icons/icojam/blueberry-basic/32/rss-icon.png"></li>
+        <li><img src="http://www.ti.com/ww/ru/images/follow-icon-twitter.gif"></li>
+        <li><img src="http://chilli-travel.ru/static/img/icon_vkontakte.png"> </li>
+                    {% endblock %}
+    </ul>
+  </div>
+ </div>
+      </header>
+
+    <hr>
+    {% block content %}
+    {% endblock %}
+
+
+{% block footer %}
+    <footer class="footer" style="background-color:#c2c2c2;">
+        <div class="container" style="margin:0 auto;">
+            <div class="row">
+                <div class="span3">
+                    <h4>Новости проекта:</h4>
+               <ul>
+                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+               </ul>
+
+                </div>
+                <div class="span3">
+                    <h4>Новые места:</h4>
+               <ul>
+                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+               </ul>
+
+                    </ul>
+                </div>
+                <div class="span3">
+                    <h4>Последние комментарии:</h4>
+               <ul>
+                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+               </ul>
+
+                </div>
+
+<div class="span3">
+                    <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+   
+ <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'autoserpukhov'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+  </body>
 </html>

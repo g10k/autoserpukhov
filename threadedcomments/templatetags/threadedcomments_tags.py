@@ -232,6 +232,7 @@ def annotate_tree(comments):
 
 
 @register.inclusion_tag("comments_block.html")
+
 def render_comments(object):
     return {"object":object}
 
