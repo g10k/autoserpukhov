@@ -10,29 +10,31 @@ from threadedcomments.forms import ThreadedCommentForm
 
 
 def comment_handler(sender,**kwargs):
+    try:
+        print "This is comment_will_be_posted_handler says:",sender, kwargs
+        request= kwargs['request']
+        #commentForm = kwargs['comment']
 
-    print "This is comment_will_be_posted_handler says:",sender, kwargs
-    request= kwargs['request']
-    #commentForm = kwargs['comment']
-
-    autocenter=AutoCenter.objects.get(pk=request.POST['object_pk'])
-    autocenter.udobstvo.add(
-        score=request.POST['udobstvo'],
-        user=request.user,
-        ip_address=request.META['REMOTE_ADDR']
-    )
-    autocenter.kachestvo.add(
-        score=request.POST['kachestvo'],
-        user=request.user,
-        ip_address=request.META['REMOTE_ADDR']
-    )
-    autocenter.stoimost.add(
-        score=request.POST['stoimost'],
-        user=request.user,
-        ip_address=request.META['REMOTE_ADDR']
-    )
-    print "successfull", autocenter
-    return True
+        autocenter=AutoCenter.objects.get(pk=request.POST['object_pk'])
+        autocenter.udobstvo.add(
+            score=request.POST['udobstvo'],
+            user=request.user,
+            ip_address=request.META['REMOTE_ADDR']
+        )
+        autocenter.kachestvo.add(
+            score=request.POST['kachestvo'],
+            user=request.user,
+            ip_address=request.META['REMOTE_ADDR']
+        )
+        autocenter.stoimost.add(
+            score=request.POST['stoimost'],
+            user=request.user,
+            ip_address=request.META['REMOTE_ADDR']
+        )
+        print "successfull", autocenter
+        return True
+    except :
+        return False
 
 comment_will_be_posted.connect(comment_handler)
 #comment_was_posted.connect(comment_handler)
@@ -56,6 +58,7 @@ def place(request,pk):
         autocenter = AutoCenter.objects.get(pk=pk)
     except AutoCenter.DoesNotExist:
         raise Http404(u"Нет такой страницы")
+
     if request.method == "POST":
         print request.form
 

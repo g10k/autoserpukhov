@@ -4,6 +4,7 @@
 {% load static %}
 {% load staticfiles %}
 {% load loginza_widget %}
+{% load ratings %}
 
 {% block title %}{{ title }}{% endblock%}
 {% block extrastyle %}
@@ -43,6 +44,15 @@
                     </td>
                 </tr>
             </form>
+            {% rating_by_request request on instance.field as could_vote %}
+
+{#            {% with autocenter.udobstvo.get_rating_for_user(request.user) as could_vote  %}#}
+                {% if could_vote  %}
+                    Можешь проголосвать
+                {% else %}
+                    Уже голосовал
+                {% endif %}
+{#            {% endwith %}#}
             <a name="new_comment"></a>
         </table>
     {% else %}
