@@ -15,6 +15,10 @@
     <script>
         $(function(){
             $(".star").rating();
+            $("#new_otzyv_form").hide();
+            $("#new_otzyv").click(function(){
+                $("#new_otzyv_form").show();
+            })
         })
     </script>
 {% endblock %}
@@ -22,17 +26,35 @@
     <h1>Описание местечка</h1>
     <h2>{{ autocenter }}, {{ autocenter.address }}</h2>
     <p>Теги:{% for tag  in autocenter.maintenance.all %}<a href="#">{{ tag }}</a>{% endfor %}</p>
-    <p>Удобство</p>
     <p>Голосов:{{ autocenter.kachestvo.votes }}, набрано баллов {{ autocenter.kachestvo.score }}</p>
 
     {{ autocenter.about }}
-
-
+    <button class="btn" id='new_otzyv'>Оставить отзыв</button>
+    <h4> Отзывы</h4>
 
     {% if user.is_authenticated %}
+        <form id='new_otzyv_form' method="post" action="">{% csrf_token %}
+            <table>
+                {{ otzyvForm.as_table }}
+                {{ oztyvForm.errors }}
+            </table>
+            <input type="submit" value="Отправить отзыв">
+        </form>
+    {% else %}
+        <p>Оставить отзыв:{% loginza_button "Чтобы оставить отзыв авторизируйтесь через соц сети"  %}</p>
+    {% endif %}
 
-      {% get_comment_form for autocenter as form %}
+    {% for otzyv in autocenter.otzyv_set.all %}
+        <h3>{{ otzyv.user }} оставил отзыв</h3>
 
+        <div class='well'>{{ otzyv }}</div>
+        {% render_comments otzyv %}
+        <a href="#">Комментировать</a>
+
+
+        {% if user.is_authenticated %}
+            <h4>Комментарии к отзыву {{ otzyv.user }}</h4>
+        {% get_comment_form for otzyv as form %}
         <table>
             <form action="/comments/post/" method="post">{% csrf_token %}
                 {{ form }}
@@ -58,7 +80,9 @@
     {% else %}
        <p>Оставить отзыв:{% loginza_button "Чтобы оставить отзыв авторизируйтесь через соц сети"  %}</p>
     {% endif %}
-    {% render_comments autocenter %} <!--- TODO: Сделать форму комментария над списком --->
+
+    {% endfor %}
+
     <div id="mc-container"></div>
     <script type="text/javascript">
         var mcSite = '16449';

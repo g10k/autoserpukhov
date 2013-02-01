@@ -11,9 +11,9 @@ from django.utils.safestring import mark_safe
 from django.contrib.auth.models import User
 
 from djangoratings.forms import RatingField
-
-
 from threadedcomments.models import ThreadedComment
+
+from autocenter.models import Otzyv,AutoCenter
 
 
 #class RatingWidget(Checkbox):
@@ -75,9 +75,43 @@ class UserField(forms.CharField):
 
 
 
-class SocialCommentForm(CommentSecurityForm):
-    parent = forms.IntegerField(required=False, widget=forms.HiddenInput)
 
+class OtzyvForm(forms.ModelForm):
+    class Meta:
+        model = Otzyv
+    MARK_CHOICES = (
+        (1,1),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5)
+        )
+    autocenter = forms.ModelChoiceField(queryset=AutoCenter.objects.all(),widget=forms.HiddenInput)
+    user = forms.ModelChoiceField(queryset=User.objects.all(),widget=forms.HiddenInput)
+    kachestvo = forms.ChoiceField(required=True, label=u"Качество",
+        choices=MARK_CHOICES,
+        widget=forms.RadioSelect(renderer=SimpleRenderer,
+            attrs={
+                "name":"star-",
+                "class":'star'}
+        )
+    )
+    stoimost = forms.ChoiceField(required=True, label=u"Цены",
+        choices=tuple(zip(range(1,6),range(1,6))),
+        widget=forms.RadioSelect(renderer=SimpleRenderer,
+            attrs={
+                "name":"star-",
+                "class":'star'}
+        )
+    )
+    udobstvo = forms.ChoiceField(required=True, label=u"Удобство",
+        choices=tuple(zip(range(1,6),range(1,6))),
+        widget=forms.RadioSelect(renderer=SimpleRenderer,
+            attrs={
+                "name":"star-",
+                "class":'star'}
+        )
+    )
 
 
 class ThreadedCommentForm(CommentForm):
@@ -86,34 +120,34 @@ class ThreadedCommentForm(CommentForm):
     name = forms.CharField(required=False,widget=forms.HiddenInput)
     email = forms.CharField(required=False,widget=forms.HiddenInput)
     comment = forms.CharField(label=_('Comment'),
-        widget=forms.Textarea(attrs={
+        widget=forms.TextInput(attrs={
             "cols":1000,
-            "style":"width:500px"
+            #"style":"width:300px; height:100px"
         }))
-    kachestvo = RatingField(required=True, label=u"Качество",
-        choices=tuple(zip(range(1,6),range(1,6))),
-        widget=forms.RadioSelect(renderer=SimpleRenderer,
-            attrs={
-            "name":"star-",
-            "class":'star'}
-        )
-    )
-    stoimost = RatingField(required=True, label=u"Цены",
-        choices=tuple(zip(range(1,6),range(1,6))),
-        widget=forms.RadioSelect(renderer=SimpleRenderer,
-            attrs={
-                "name":"star-",
-                "class":'star'}
-        )
-    )
-    udobstvo = RatingField(required=True, label=u"Удобство",
-        choices=tuple(zip(range(1,6),range(1,6))),
-        widget=forms.RadioSelect(renderer=SimpleRenderer,
-            attrs={
-                "name":"star-",
-                "class":'star'}
-        )
-    )
+#    kachestvo = RatingField(required=True, label=u"Качество",
+#        choices=tuple(zip(range(1,6),range(1,6))),
+#        widget=forms.RadioSelect(renderer=SimpleRenderer,
+#            attrs={
+#            "name":"star-",
+#            "class":'star'}
+#        )
+#    )
+#    stoimost = RatingField(required=True, label=u"Цены",
+#        choices=tuple(zip(range(1,6),range(1,6))),
+#        widget=forms.RadioSelect(renderer=SimpleRenderer,
+#            attrs={
+#                "name":"star-",
+#                "class":'star'}
+#        )
+#    )
+#    udobstvo = RatingField(required=True, label=u"Удобство",
+#        choices=tuple(zip(range(1,6),range(1,6))),
+#        widget=forms.RadioSelect(renderer=SimpleRenderer,
+#            attrs={
+#                "name":"star-",
+#                "class":'star'}
+#        )
+#    )
 
     url = forms.CharField(required=False, widget=forms.HiddenInput)
 

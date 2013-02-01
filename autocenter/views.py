@@ -8,6 +8,9 @@ from loginza import signals
 
 from threadedcomments.forms import ThreadedCommentForm
 
+# TODO: Переместить OtzyvForm в AutoCenter
+from threadedcomments.forms import OtzyvForm
+
 
 def comment_handler(sender,**kwargs):
     try:
@@ -60,8 +63,17 @@ def place(request,pk):
         raise Http404(u"Нет такой страницы")
 
     if request.method == "POST":
-        print request.form
+        form = OtzyvForm(request.POST)
+        print request.POST
+        print OtzyvForm
+        if form.is_valid():
+            print "EST CONTACT"
+            form.save()
+        else:
+            print "EST OSHIBKI",form.errors
+            #print form.cleaned_data
+            return {"autocenter":autocenter,"otzyvForm":form}
 
+    print request.user
 
-
-    return {"autocenter":autocenter,}
+    return {"autocenter":autocenter,"otzyvForm":OtzyvForm(initial={"autocenter":autocenter,"user":request.user})}

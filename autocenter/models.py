@@ -89,16 +89,35 @@ class AutoCenter(models.Model):
 
 
 class Otzyv(models.Model):
+    MARK_CHOICES = (
+        (5,5),
+        (4,4),
+        (3,3),
+        (2,2),
+        (1,1)
+    )
     autocenter = models.ForeignKey(AutoCenter,verbose_name=u"Автосервисы")
-    text = models.TextField(u"Отзыв")
-    user = User(u"Автолюбитель")
-    kachestvo = RatingField(range=5,verbose_name=u"Качество")
-    udobstvo = RatingField(range=5,verbose_name=u"Удобство")
-    stoimost = RatingField(range=5,verbose_name=u"Стоимость услуг")
+    text = models.TextField(u"Ваш отзыв")
+    user = models.ForeignKey(User,verbose_name=u"Автолюбитель")
+    kachestvo = models.PositiveIntegerField(choices=MARK_CHOICES,verbose_name=u"Качество")
+    udobstvo = models.PositiveIntegerField(choices=MARK_CHOICES,verbose_name=u"Удобство")
+    stoimost = models.PositiveIntegerField(choices=MARK_CHOICES,verbose_name=u"Стоимость услуг")
+    #time
+
+    def __unicode__(self):
+        return unicode(self.text)
+
+
+
+    class Meta:
+        verbose_name = u"Отзыв"
+        verbose_name_plural = u"Отзывы"
+
 
 
 
 admin.site.register(AutoCenterType)
+admin.site.register(Otzyv)
 #admin.site.register(AutoCenter)
 #admin.site.register(AutoCenterImage)
 
