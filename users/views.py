@@ -1,9 +1,12 @@
-# -*- coding:utf-8 -*-
+# -*- encoding: utf-8 -*-
+import json
+
 from django import http
 from django.contrib import messages, auth
 from django.shortcuts import redirect, render_to_response
 from django.core.urlresolvers import reverse
 from django.template.context import RequestContext
+
 
 from .forms import CompleteReg
 
@@ -16,11 +19,35 @@ def loginza_error_handler(sender, error, **kwargs):
 
 signals.error.connect(loginza_error_handler)
 
+
+
+
+def logout_handler(sender,request,user,**kwargs):
+    messages.add_message(request, messages.INFO, 'Вышел')
+
+
+
+
+auth.signals.user_logged_out.connect(logout_handler)
+
+
+
+
+
 def loginza_auth_handler(sender, user, identity, **kwargs):
+    print "we are in loginza_auth_handler","user: ",user,"identity: ", identity
+    #map = models.UserMap.objects.get(user=user, verified=True)
+    #data = json.loads(map.identity.data)
+    #print "map: ",map,"data: ", data
     try:
         # it's enough to have single identity verified to treat user as verified
         models.UserMap.objects.get(user=user, verified=True)
         auth.login(sender, user)
+        print "identity: ",identity
+        map = models.UserMap.objects.get(user=user)
+        data = json.loads(map.identity.data)
+        print "data: ",data
+        #system_user = User.objects.get(username=user)
     except models.UserMap.DoesNotExist:
         sender.session['users_complete_reg_id'] = identity.id
         return redirect(reverse('users.views.complete_registration'))

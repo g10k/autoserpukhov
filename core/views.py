@@ -9,25 +9,19 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.utils import simplejson
 
-
 from annoying.decorators import render_to,ajax_request
-from autorepair.models import AutoRepair
 from autocenter.models import AutoCenter, AutoCenterType
-
-
-
-
-
+from threadedcomments.models import ThreadedComment
 
 @csrf_exempt
 @render_to("index.html")
 def index(request):
-    repairs = AutoRepair.objects.all()
     title = u"АвтоСерпухов"
     autocenters = AutoCenter.objects.all()
     autocentertypes = AutoCenterType.objects.all()
     autocenter_cls = AutoCenter
     repairs = AutoCenter.objects.repairs()
+    comments = ThreadedComment.objects.all()[:3]
     local_vars = locals()
     local_vars.pop('request')
     print request
@@ -37,7 +31,6 @@ def index(request):
 @render_to("guess_button.html")
 def guess_button(request):
     if request.is_ajax():
-
         try:
             count = int(request.GET["count"])
         except ValueError as e:

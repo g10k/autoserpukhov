@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
-
 from djangoratings.fields import RatingField
 # Create your models here.
 
@@ -61,6 +60,9 @@ class AutoCenter(models.Model):
     longitude = models.FloatField(u"Долгота")
     latitude = models.FloatField(u"Широта")
     worktime = models.CharField(u"Время работы",max_length=180)
+    kachestvo = RatingField(range=5, verbose_name=u"Качество")
+    udobstvo = RatingField(range=5, verbose_name=u"Удобство")
+    stoimost = RatingField(range=5, verbose_name=u"Стоимость услуг")
 
     objects = AutoCenterManager()
 
@@ -105,9 +107,18 @@ class Otzyv(models.Model):
     #time
 
     def __unicode__(self):
-        return unicode(self.text)
+        return unicode(self.text)[:50]
 
 
+    def get_absolute_url(self):
+        return reverse("autocenter.place",kwargs={"pk":self.autocenter.pk}) + "/#"
+
+    def save(self,*args,**kwargs):
+        print self.autocenter
+        self.autocenter.udobstvo.add(score=self.udobstvo,user=self.user,ip_address="127.0.0.1")
+        self.autocenter.stoimost.add(score=self.stoimost,user=self.user,ip_address="127.0.0.1")
+        self.autocenter.kachestvo.add(score=self.kachestvo,user=self.user,ip_address="127.0.0.1")
+        super(Otzyv,self).save(*args,**kwargs)
 
     class Meta:
         verbose_name = u"Отзыв"
@@ -118,7 +129,5 @@ class Otzyv(models.Model):
 
 admin.site.register(AutoCenterType)
 admin.site.register(Otzyv)
-#admin.site.register(AutoCenter)
-#admin.site.register(AutoCenterImage)
 
 

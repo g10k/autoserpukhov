@@ -15,6 +15,14 @@
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src={% static "js/bootstrap.js" %}></script>
+    <script>
+        $(function(){
+            $(".loginza").hide();
+            $("#show_loginza").click(function(){
+                $(".loginza").click();
+            });
+        })
+    </script>
 {% block extrastyle %}{% endblock %}
 {% block extrahead %}{% endblock %}
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -40,27 +48,34 @@
         </div>
       </div>
 <div class="row">
-        <div class="span6">
+        <div class="span3">
                 <h1>АвтоСерпухов <span class="label label-info" style="vertical-align:top">beta</span></h1> 
         </div>
 
 
-        <div class="span6">
-        <ul class="nav nav-pills pull-right">
-                    {% block menu %}
-          <li class="active">
-            <a href="index.html">Главная</a>
-          </li>
-          <li><a href="{% url places %}">Каталог</a></li>
-          <li><a href="#">Добавить место</a></li>
-          <li><a href="#">О проекте</a></li>
-          {% if user.is_authenticated %}<li><a>Вы вошли как {{ user }}</a></li>/<a href="/users/logout">Выйти</a>
+        <div class="span9">
+            <ul class="nav nav-pills pull-right">
+            {% block menu %}
+              <li id=menu-main>
+                <a href="/">Главная</a>
+              </li>
+              <li id=menu-places><a href="{% url places %}">Каталог</a></li>
+              <li id=menu-add-place><a href="#">Добавить место</a></li>
+              <li id=menu-about><a href="#">О проекте</a></li>
+              {% if user.is_authenticated %}
+                  <li><a>Вы вошли как {{ user }}</a></li>
+                  <li><a href="/users/logout/?next={{ request.path }}">Выйти</a></li>
               {% else %}
-              {% loginza_button "Войти"  %}
-          {% endif %}
-                    {% endblock %}
-        </ul>
+                  <li><a id="show_loginza" href="#">Войти</a>{% loginza_button "Войти" %}</li>
+              {% endif %}
+            {% endblock %}
+            </ul>
+            <div class="span6 offset3">
+                {% block message %}
+                {% endblock %}
+            </div>
       </div>
+
 </div>
         
 <div class="row">
@@ -86,59 +101,39 @@
 
 
 {% block footer %}
-    <footer class="footer" style="background-color:#c2c2c2;">
-        <div class="container" style="margin:0 auto;">
-            <div class="row">
-                <div class="span3">
-                    <h4>Новости проекта:</h4>
+<footer class="footer" style="background-color:#c2c2c2;">
+    <div class="container" style="margin:0 auto;">
+        <div class="row">
+            <div class="span3">
+                <h4>Новости проекта:</h4>
                <ul>
                   <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
                   <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
                   <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
                </ul>
-
-                </div>
-                <div class="span3">
-                    <h4>Новые места:</h4>
-               <ul>
-                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
-                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
-                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
-               </ul>
-
+            </div>
+            <div class="span3">
+                <h4>Новые места:</h4>
+                    <ul>
+                      <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
+                      <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
+                      <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
                     </ul>
-                </div>
-                <div class="span3">
-                    <h4>Последние комментарии:</h4>
+            </div>
+            <div class="span3">
+                <h4>Последние комментарии:</h4>
                <ul>
-                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
-                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
-                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+                   {% for comment in comments %}
+                       <li><a href="{{ comment.get_absolute_url }}">{{ comment.comment|truncatewords:6 }}</a>/{{ comment.user }}</li>
+                   {% endfor %}
                </ul>
-
-                </div>
-
-<div class="span3">
-                    <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>
-
-                </div>
-
+            </div>
+            <div class="span3">
+                <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 {% endblock %}
-   
- <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'autoserpukhov'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
   </body>
 </html>

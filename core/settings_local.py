@@ -19,12 +19,20 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'core\\repairit.db',                      # Or path to database file if using sqlite3.
+        'NAME': r'D:\sites\temp\django\autoserpukhov\core\repairit.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
+    },
+    'TEST_NAME':{
+        "ENGINE":"django.db.backends.sqlite3",
+        'NAME': r'D:\sites\temp\django\autoserpukhov\core\testzrepairit.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': ''
+    }                      # Set to empty string for default. Not used with sqlite3.
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -151,7 +159,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'annoying',
-    'autorepair',
+    #'autorepair',
     'threadedcomments',
     'autocenter',
     'djangoratings',
@@ -159,6 +167,7 @@ INSTALLED_APPS = (
     'users',
     'south'
 )
+SOUTH_TESTS_MIGRATE = False
 COMMENTS_APP = 'threadedcomments'
 
 # A sample logging configuration. The only tangible logging

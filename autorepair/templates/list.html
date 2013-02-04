@@ -1,6 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-     {% for autorepair in autorepairs %}
-        <p><a href="{% url autorepair autorepair.pk %}">{{ autorepair }}</a></p>
-     {% endfor %}
-{% endblock %}

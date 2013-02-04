@@ -18,6 +18,12 @@ class ThreadedComment(Comment):
 
     objects = CommentManager()
 
+
+    def get_absolute_url(self):
+        object = self.content_type.get_object_for_this_type(pk = self.object_pk)
+        #print object.autocenter.get_absolute_url() + "/#c" + self.pk
+        return object.autocenter.get_absolute_url() + "#c%s" % (self.pk)
+
     def _get_depth(self):
         return len(self.tree_path.split(PATH_SEPARATOR))
     depth = property(_get_depth)
