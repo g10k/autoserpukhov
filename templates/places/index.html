@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load staticfiles %}
+{% load autocenter_tags %}
 {% block title %} АвтоМеста {% endblock %}
 {% block extrastyle %}
     <link href='{% static "css/jquery.rating.css" %}' rel='stylesheet'>
@@ -44,18 +45,11 @@
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">{{ autocenter.name }}</h4>
-                    <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                        (<a href="#">{{ autocenter.otzyv_set.all|length }} отзыва</a>)</p>
-                    <p>
-                       <select name="star{{ autocenter.pk }}">
-                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
-                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
-                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
-                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
-                        <input name="star{{ autocenter.pk }}" type="radio" class="starz"/>
-                       </select>
 
-                    </p>
+
+                    <p> {% stars autocenter.get_rating %}
+{#                        <i class="icon-star"></i><i class="icon-star-empty"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>#}
+                        (<a href="{{  autocenter.get_absolute_url}}">{{ autocenter.otzyv_set.all|length }} отзыва</a>)</p>
                     <address>{{ autocenter.address }}<br>
                         {{ autocenter.telephone }}
                     </address>
@@ -144,7 +138,7 @@
             <div class="well"><h4>Последние отзывы:</h4>
                 {% for otzyv in otzyvi %}
                     <ul class="unstyled">
-                        <li><p><a href="#">{{ otzyv }}</a> (<i class="icon-wrench"></i> <a href="{{ otzyv.autocenter.get_absolute_url }}"><strong>{{ otzyv.autocenter }}</strong></a>)
+                        <li><p><a href="{{ otzyv.get_absolute_url }}">{{ otzyv }}</a> (<i class="icon-wrench"></i> <a href="{{ otzyv.autocenter.get_absolute_url }}"><strong>{{ otzyv.autocenter }}</strong></a>)
                             <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>  </p></li>
                     </ul>
                 {% endfor %}

@@ -20,3 +20,13 @@ def identity_data(user):
         return {}
 
 
+from math import ceil
+@register.inclusion_tag("templatetags/stars.html")
+def stars(num,totaly=5):
+    """Высвечивает num заполненых звезд"""
+    n = int(ceil(num))
+    stars_list = (1,)*n + (0,)*(5-n)
+    print stars_list
+
+    return {"stars_list":stars_list}
+

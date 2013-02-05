@@ -80,6 +80,7 @@ def place(request,pk):
         if form.is_valid():
             print "EST CONTACT"
             form.save()
+            return redirect(autocenter)
         else:
             print "EST OSHIBKI",form.errors
             #print form.cleaned_data

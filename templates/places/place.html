@@ -33,12 +33,33 @@
     </script>
 {% endblock %}
 {% block content %}
-    <h1>Описание местечка</h1>
-    <h2>{{ autocenter }}, {{ autocenter.address }}</h2>
-    <p>Теги:{% for tag  in autocenter.maintenance.all %}<a href="#">{{ tag }}</a>{% endfor %}</p>
-    <p>Голосов:{{ autocenter.kachestvo.votes }}, набрано баллов {{ autocenter.kachestvo.score }}</p>
+    <div class=row>
+        <div class="span10">
+{#            <h1>Описание местечка</h1>#}
+            <h2>{{ autocenter }}, {{ autocenter.address }}</h2>
+            <p>Теги:{% for tag  in autocenter.maintenance.all %}<a href="#"> {{ tag }} </a>{% endfor %}</p>
+        </div>
+        <div class="span2">
+            <div class="span2 pull-right">
+                <span class='label label-info'> Качество: {{ autocenter.kachestvo.get_rating|floatformat }}</span>
+            </div>
+            <div class="span2 pull-right">
+                <span class='label label-info'>Удобство: {{ autocenter.udobstvo.get_rating|floatformat }}</span>
+            </div>
 
-    {{ autocenter.about }}
+            <div class="span2 pull-right">
+                <span class="label label-info">Цены: {{ autocenter.stoimost.get_rating|floatformat }}</span>
+            </div>
+
+        </div>
+    <div></div>
+    </div>
+    <p>
+        Всего отзывов <span class="badge badge-info">{{ autocenter.kachestvo.votes }}</span>
+        средняя оценка  <span class="badge badge-success"> {{ autocenter.get_rating|floatformat  }}</span>
+    </p>
+
+    {{ autocenter.about|linebreaks }}
 
     <button class="btn" id='new_otzyv'>Оставить отзыв<i class="icon-pencil" title="оставить отзыв"></i></button>
 
@@ -61,7 +82,7 @@
 {#  Все отзывы      #}
     {% for otzyv in autocenter.otzyv_set.all %}
         {% identity_data otzyv.user as id_data %}
-        <a name="{{ otzyv.pk }}"></a>
+        <a name="o{{ otzyv.pk }}"></a>
         <h4><img src="{{ id_data.photo }}"> {{ otzyv.user }} оставил отзыв</h4>
         <div class='well' >{{ otzyv.text|linebreaks }}</div>
 

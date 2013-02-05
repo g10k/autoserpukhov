@@ -72,6 +72,9 @@ class AutoCenter(models.Model):
     def _get_coordinates(self):
         return u"%s, %s" % (self.latitude,self.longitude)
 
+    def get_rating(self):
+        return (self.udobstvo.get_rating() + self.kachestvo.get_rating() + self.stoimost.get_rating()) / 3
+
     coordinates = property(_get_coordinates)
 
     full_name = property(_get_full_name)
@@ -111,7 +114,8 @@ class Otzyv(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse("autocenter.place",kwargs={"pk":self.autocenter.pk}) + "/#"
+
+        return reverse("autocenter.views.place",kwargs={"pk":self.autocenter.pk}) + "#o%s" % self.pk
 
     def save(self,*args,**kwargs):
         print self.autocenter
@@ -119,6 +123,12 @@ class Otzyv(models.Model):
         self.autocenter.stoimost.add(score=self.stoimost,user=self.user,ip_address="127.0.0.1")
         self.autocenter.kachestvo.add(score=self.kachestvo,user=self.user,ip_address="127.0.0.1")
         super(Otzyv,self).save(*args,**kwargs)
+
+    def delete(self,*args,**kwargs):
+        self.autocenter.udobstvo.delete(user=self.user,id_address='127.0.0.1')
+        self.autocenter.kachestvo.delete(user=self.user,id_address='127.0.0.1')
+        self.autocenter.stoimost.delete(user=self.user,id_address='127.0.0.1')
+        super(Otzyv,self).delete(*args,**kwargs)
 
     class Meta:
         verbose_name = u"Отзыв"

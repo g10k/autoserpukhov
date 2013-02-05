@@ -12,7 +12,7 @@
 
 <li{% if comment.last %} class="last"{% endif %}>
     <div>
-        <a name='#c{{ comment.pk }}'>{{ comment.user_name }}</a>,
+        <a name='c{{ comment.pk }}'>{{ comment.user_name }}</a>,
             {{ comment.submit_date }}
                 <a class='new-comment' href="#new_comment" data-id="{{ comment.pk }}">Ответить</a>
         <p>{{ comment.comment }}</p>
