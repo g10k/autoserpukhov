@@ -50,7 +50,7 @@
                     var myCollection = new ymaps.GeoObjectCollection({},{ preset:placeMarkIcons[pk]});
                     {% for autocenter in type.autocenter_set.all %}
                         myCollection.add(new ymaps.Placemark([{{autocenter.coordinates}}],{
-                            balloonContent:"{{autocenter.full_name}}"
+                            balloonContent:"<a href='{{ autocenter.get_absolute_url }}'>{{ autocenter }}</a> {{autocenter.address}}"
                         }));
                     {% endfor %}
                     myMap.geoObjects.add(myCollection);

@@ -107,14 +107,16 @@
             <div class="span3">
                 <h4>Новости проекта:</h4>
                <ul>
-                  <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
-                  <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
-                  <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
+                  <li><a href="#">Код на github.com</a></li>
+                  <li><a href="#">Февраль - перерыв</a></li>
+                  <li><a href="#">Начали работу над проектом в январе-феврале</a></li>
+                  <li>Здесь бы не помешали вертикальные разграничители колонок</li>
                </ul>
             </div>
             <div class="span3">
                 <h4>Новые места:</h4>
                     <ul>
+{#                      {% for autocenter %}#}
                       <li><a href="#">Sed eu leo orci, in rhoncus puru condimentum gravida metus</a></li>
                       <li><a href="#">Etiam at in rhoncus puru nulla ipsum, in rhoncus purus</a></li>
                       <li><a href="#">Fusce vel magnain rhoncus puru faucibus felis dapibus facilisis</a></li>
@@ -122,11 +124,12 @@
             </div>
             <div class="span3">
                 <h4>Последние комментарии:</h4>
-               <ul>
+               <dl>
                    {% for comment in comments %}
-                       <li><a href="{{ comment.get_absolute_url }}">{{ comment.comment|truncatewords:6 }}</a>/{{ comment.user }}</li>
+                       <dt><span class='icon-user'></span> {{ comment.user }}:</dt>
+                        <dd><a href="{{ comment.get_absolute_url }}">{{ comment.comment|truncatewords:6 }}</a></dd>
                    {% endfor %}
-               </ul>
+               </dl>
             </div>
             <div class="span3">
                 <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>
