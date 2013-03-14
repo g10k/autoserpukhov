@@ -10,23 +10,29 @@ from django.http import HttpResponse
 from django.utils import simplejson
 
 from annoying.decorators import render_to,ajax_request
-from autocenter.models import AutoCenter, AutoCenterType
+from autocenter import models
 from threadedcomments.models import ThreadedComment
 
 @csrf_exempt
 @render_to("index.html")
 def index(request):
     title = u"АвтоСерпухов"
-    autocenters = AutoCenter.objects.all()
-    autocentertypes = AutoCenterType.objects.all()
-    autocenter_cls = AutoCenter
-    repairs = AutoCenter.objects.repairs()
+    autocenters = models.AutoCenter.objects.all()
+    autocentertypes = models.AutoCenterType.objects.all()
+    autocenter_cls = models.AutoCenter
+    repairs = models.AutoCenter.objects.repairs()
     comments = ThreadedComment.objects.all()[:3]
     local_vars = locals()
     local_vars.pop('request')
     print request
     return local_vars
 
+@ajax_request
+def search_by_name(request):
+#    print request
+    names = [name.encode("utf8") for name in models.AutoCenter.objects.values_list("name", flat=True)]
+    return {"lol": names}
+    return {"lol":['big', 'mom']}
 
 @render_to("guess_button.html")
 def guess_button(request):

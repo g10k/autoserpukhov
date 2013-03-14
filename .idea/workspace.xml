@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac9aec6c-a0b1-49c6-9cb3-5663d322792e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/templatetags/stars.html" />
+    <list default="true" id="ac9aec6c-a0b1-49c6-9cb3-5663d322792e" name="Default" comment="Дофига че сделал. Выход с next на текущую страницу. Вход  в стиле bootstrap, блок для messages, сохранение оценок от отзывов в рейтинги автоцентров. По мелочам ссылочки, переходы. Последние коментарии и отзывы.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO" afterPath="$PROJECT_DIR$/TODO" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autocenter/models.py" afterPath="$PROJECT_DIR$/autocenter/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autocenter/templatetags/autocenter_tags.py" afterPath="$PROJECT_DIR$/autocenter/templatetags/autocenter_tags.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autocenter/views.py" afterPath="$PROJECT_DIR$/autocenter/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/urls.py" afterPath="$PROJECT_DIR$/core/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/views.py" afterPath="$PROJECT_DIR$/core/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/places/index.html" afterPath="$PROJECT_DIR$/templates/places/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/places/place.html" afterPath="$PROJECT_DIR$/templates/places/place.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/threadedcomments/templates/one_comment.html" afterPath="$PROJECT_DIR$/threadedcomments/templates/one_comment.html" />
     </list>
     <list id="e2917c7b-9af0-4111-a869-f5d3b82e308c" name="New changelist" comment="New changelist" />
+    <list id="119ad5b1-74b1-4f61-ba8e-a9a51b7bdf2e" name="ajax_search" comment="ajax_search" />
     <ignored path="autoserpukhov.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,86 +37,83 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="46" selection-start="5082" selection-end="5082" vertical-scroll-proportion="-15.538462">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TODO" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TODO">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="1" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autocenter/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="78" selection-start="4353" selection-end="4353" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fields.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/site-packages/django_ratings-0.3.7-py2.7.egg/djangoratings/fields.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="26" selection-start="2094" selection-end="2100" vertical-scroll-proportion="-14.96">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autocenter/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="39" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0">
+            <state line="119" column="41" selection-start="4707" selection-end="4717" vertical-scroll-proportion="-3.4705882">
               <folding>
-                <element signature="e#26#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="place.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/places/place.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="40" selection-start="1064" selection-end="1090" vertical-scroll-proportion="0.34470376">
-              <folding>
-                <element signature="n#block#2;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#footer#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/places/index.html">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="65" selection-start="2072" selection-end="2072" vertical-scroll-proportion="-27.038462">
-              <folding>
-                <element signature="e#2293#2318#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#1" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autocenter_tags.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autocenter/templatetags/autocenter_tags.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="23" selection-start="682" selection-end="682" vertical-scroll-proportion="0.0">
+            <state line="104" column="5" selection-start="4734" selection-end="4734" vertical-scroll-proportion="-24.192308">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stars.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/templatetags/stars.html">
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/django-1.4.3-py2.7.egg/django/utils/simplejson/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="12" selection-start="164" selection-end="164" vertical-scroll-proportion="-3.9230769">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decorators.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Python27/Lib/site-packages/django_annoying-0.7.6-py2.7.egg!/annoying/decorators.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="145" column="59" selection-start="4437" selection-end="4437" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="17" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="53" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autocenter/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="47" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_search.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/ajax_search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="53" selection-start="2418" selection-end="2418" vertical-scroll-proportion="1.5877438">
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/bootstrap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1753" column="35" selection-start="48415" selection-end="48415" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,28 +132,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
-    <option name="mySelectedBranch" value="refs/remotes/origin/master" />
+    <option name="mySelectedBranch" value="refs/remotes/origin/ajax_search" />
     <option name="myStructureFilterPaths" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/404.html" />
-        <option value="$PROJECT_DIR$/users/urls.py" />
-        <option value="C:/Python27/Lib/site-packages/django-1.4.3-py2.7.egg/django/contrib/auth/views.py" />
-        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/users/views.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/threadedcomments/models.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/threadedcomments/templates/one_comment.html" />
         <option value="$PROJECT_DIR$/autocenter/templatetags/autocenter_tags.py" />
         <option value="$PROJECT_DIR$/templates/templatetags/stars.html" />
         <option value="$PROJECT_DIR$/templates/places/index.html" />
         <option value="$PROJECT_DIR$/autocenter/views.py" />
         <option value="$PROJECT_DIR$/autocenter/models.py" />
-        <option value="$PROJECT_DIR$/TODO" />
         <option value="$PROJECT_DIR$/templates/places/place.html" />
+        <option value="$PROJECT_DIR$/TODO" />
+        <option value="$PROJECT_DIR$/core/urls.py" />
+        <option value="$PROJECT_DIR$/core/views.py" />
+        <option value="$PROJECT_DIR$/static/js/jquery-ui-1.10.1.custom.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/ajax_search.html" />
       </list>
     </option>
   </component>
@@ -214,6 +208,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autoserpukhov" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="autocenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -456,6 +510,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="ac9aec6c-a0b1-49c6-9cb3-5663d322792e" name="Default" comment="" />
       <changelist id="e2917c7b-9af0-4111-a869-f5d3b82e308c" name="New changelist" comment="" />
+      <changelist id="119ad5b1-74b1-4f61-ba8e-a9a51b7bdf2e" name="ajax_search" comment="" />
       <created>1359101233315</created>
       <updated>1359101233315</updated>
     </task>
@@ -499,7 +554,15 @@
       <created>1360007173117</created>
       <updated>1360007173117</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Теперь работаю с github. Все изменения комитятся в репозиторий. И автокомплит на продакшн ftp сервер.">
+      <created>1363012315207</created>
+      <updated>1363012315207</updated>
+    </task>
+    <task id="LOCAL-00014" summary="инклюдный шаблон с Автокомплитом на основе typeahead из bootstrap">
+      <created>1363257439210</created>
+      <updated>1363257439210</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -526,23 +589,23 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29249448" sideWeight="0.49786553" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5331126" sideWeight="0.49786553" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67660046" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67108166" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30843115" sideWeight="0.67108166" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.7075055" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32560706" sideWeight="0.49839914" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3222958" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32337245" sideWeight="0.4668874" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3222958" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -583,7 +646,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дофига че сделал. Выход с next на текущую страницу. Вход  в стиле bootstrap, блок для messages, сохранение оценок от отзывов в рейтинги автоцентров. По мелочам ссылочки, переходы. Последние коментарии и отзывы." />
+    <option name="LAST_COMMIT_MESSAGE" value="инклюдный шаблон с Автокомплитом на основе typeahead из bootstrap" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -602,127 +665,118 @@
     <MESSAGE value="После некоторых правок на работе. Перед заливкой на heroku" />
     <MESSAGE value="Правил комментарии и оставление оценок и сохранение их через сигнал. Почему-то на локалке они добавляются, на jino - нет." />
     <MESSAGE value="Отзывы заработали. начал делать разметку с bootstrap" />
+    <MESSAGE value="Теперь работаю с github. Все изменения комитятся в репозиторий. И автокомплит на продакшн ftp сервер." />
     <MESSAGE value="Дофига че сделал. Выход с next на текущую страницу. Вход  в стиле bootstrap, блок для messages, сохранение оценок от отзывов в рейтинги автоцентров. По мелочам ссылочки, переходы. Последние коментарии и отзывы." />
+    <MESSAGE value="инклюдный шаблон с Автокомплитом на основе typeahead из bootstrap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python27/Lib/site-packages/django-1.4.3-py2.7.egg/django/contrib/contenttypes/models.py">
+    <entry file="file://$PROJECT_DIR$/LICENSE.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="6" selection-start="4472" selection-end="4472" vertical-scroll-proportion="0.11663808">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/TODO">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="4623" selection-end="4623" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadedcomments/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="46" selection-start="5082" selection-end="5082" vertical-scroll-proportion="-15.538462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadedcomments/templates/comments_block.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="428" selection-end="428" vertical-scroll-proportion="-10.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadedcomments/templates/one_comment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="266" selection-end="266" vertical-scroll-proportion="0.4383057">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadedcomments/templatetags/threadedcomments_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="30" selection-start="8713" selection-end="8713" vertical-scroll-proportion="0.50933784">
-          <folding />
-        </state>
+        <state line="25" column="0" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/autocenter/templatetags/autocenter_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="23" selection-start="682" selection-end="682" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="30" column="23" selection-start="682" selection-end="682" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/templatetags/stars.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="164" selection-end="164" vertical-scroll-proportion="-3.9230769">
-          <folding />
-        </state>
+        <state line="6" column="12" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/django_ratings-0.3.7-py2.7.egg/djangoratings/fields.py">
+    <entry file="file://$PROJECT_DIR$/templates/places/place.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="26" selection-start="2094" selection-end="2100" vertical-scroll-proportion="-14.96">
-          <folding />
-        </state>
+        <state line="37" column="40" selection-start="1064" selection-end="1090" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/places/index.html">
+    <entry file="file://$PROJECT_DIR$/autocenter/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="65" selection-start="2072" selection-end="2072" vertical-scroll-proportion="-27.038462">
-          <folding>
-            <element signature="e#2293#2318#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/django-1.4.3-py2.7.egg/django/shortcuts/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="4" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.3327674">
+        <state line="7" column="47" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/autocenter/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="39" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.0">
+        <state line="82" column="39" selection-start="2435" selection-end="2435" vertical-scroll-proportion="0.6417657">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="53" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django-1.4.3-py2.7.egg/django/utils/simplejson/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Python27/Lib/site-packages/django_annoying-0.7.6-py2.7.egg!/annoying/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="59" selection-start="4437" selection-end="4437" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery-ui-1.10.1.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="15" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.3614035">
           <folding>
-            <element signature="e#26#57#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autocenter/models.py">
+    <entry file="file://$PROJECT_DIR$/static/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="78" selection-start="4353" selection-end="4353" vertical-scroll-proportion="0.0">
+        <state line="1753" column="35" selection-start="48415" selection-end="48415" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TODO">
+    <entry file="file://$PROJECT_DIR$/core/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
+        <state line="31" column="17" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/places/place.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="40" selection-start="1064" selection-end="1090" vertical-scroll-proportion="0.34470376">
+        <state line="104" column="5" selection-start="4734" selection-end="4734" vertical-scroll-proportion="-24.192308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="41" selection-start="4707" selection-end="4717" vertical-scroll-proportion="-3.4705882">
           <folding>
-            <element signature="n#block#2;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#footer#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ajax_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="53" selection-start="2418" selection-end="2418" vertical-scroll-proportion="1.5877438">
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
