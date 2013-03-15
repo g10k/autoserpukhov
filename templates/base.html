@@ -50,7 +50,7 @@
       </div>
 <div class="row">
         <div class="span3">
-                <h1>АвтоСерпухов <span class="label label-info" style="vertical-align:top">beta</span></h1> 
+                <label onclick='document.location.href="/"'><h1>АвтоСерпухов <span class="label label-info" style="vertical-align:top">beta</span></h1></label>
         </div>
 
 
@@ -125,12 +125,14 @@
             </div>
             <div class="span3">
                 <h4>Последние комментарии:</h4>
-               <dl>
+{#               <dl>#}
                    {% for comment in comments %}
-                       <dt><span class='icon-user'></span> {{ comment.user }}:</dt>
-                        <dd><a href="{{ comment.get_absolute_url }}">{{ comment.comment|truncatewords:6 }}</a></dd>
+{#                       <dt><span class='icon-user'></span> {{ comment.user }}:</dt>#}
+                        {% comment %}<dd>{% endcomment %}<blockquote><p><a href="{{ comment.get_absolute_url }}">{{ comment.comment|truncatewords:6 }}</a></p>{% comment %}</dd>{% endcomment %}
+                        <p class='pull-right'<!--TODO заменить на text-right с версии bootstrap 2.3.0 -->><span class='icon-user'></span> {{ comment.user }}</p>
+                        </blockquote>
                    {% endfor %}
-               </dl>
+{#               </dl>#}
             </div>
             <div class="span3">
                 <p style="margin-top:15px;">&copy;2013 АвтоСерпухов. Все права защищены.</p>

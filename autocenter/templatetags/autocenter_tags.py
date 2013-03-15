@@ -3,6 +3,8 @@ __author__ = 'Сергей'
 import json
 
 from django import template
+from django.db.models.query import QuerySet
+from django.core.serializers import serialize
 
 from loginza import models
 
@@ -29,4 +31,12 @@ def stars(num,totaly=5):
     print stars_list
 
     return {"stars_list":stars_list}
+
+
+def jsonify(object):
+    if isinstance(object, QuerySet):
+        return serialize('json', object)
+    return json.dumps(object)
+
+register.filter('jsonify', jsonify)
 

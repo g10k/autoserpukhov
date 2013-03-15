@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load autocenter_tags %}
 {% load staticfiles %}
 {% load loginza_widget %}
 {% block title %}{{ title }}{% endblock %}
@@ -47,7 +48,7 @@
                 {% for type in autocentertypes %} {% comment %} TODO Более грамотно сделать генерирование JS для добавления коллекций{% endcomment %}
                 {
                     var pk = "{{type.pk}}";
-                    var myCollection = new ymaps.GeoObjectCollection({},{ preset:placeMarkIcons[pk]});
+                    var myCollection = new ymaps.GeoObjectArray({},{ preset:placeMarkIcons[pk]});
                     {% for autocenter in type.autocenter_set.all %}
                         myCollection.add(new ymaps.Placemark([{{autocenter.coordinates}}],{
                             balloonContent:"<a href='{{ autocenter.get_absolute_url }}'>{{ autocenter }}</a> {{autocenter.address}}"
@@ -57,11 +58,33 @@
                     toggle(myCollection,$("a[data-id="+pk+"]"));
                 };
                 {% endfor %}
+
                 });
+
+
 
             });
     </script>
-{% endblock  %}
+{#    &lt;script type="text/javascript"&gt;<![CDATA[autocenters = {{ autocenters|jsonify|safe }};]]>&lt;/script&gt;#}
+    <script>
+        lol = "!";
+        autocenters = {{ autocenters|jsonify|safe }}
+        autocentertypes = {{ autocentertypes|jsonify|safe }}
+
+        ymaps.ready(function(){
+            $(autocentertypes).each(function(type){
+                var centers = $.grep(autocenters,function(autocenter, i){
+                    console.log(autocenter.fields.maintenance,type);
+                    if (autocenter.fields.maintenance.indexOf(type)!= -1)
+                        return true
+                });
+                console.log(centers);
+            })
+        });
+    </script>
+
+
+       {% endblock  %}
 {% block message %}
     {% if messages %}
     {% endif %}
@@ -101,10 +124,10 @@
 
 
 
-
+    <br>
     <div class="row-fluid">
         <div class="span12">
-            <p style="margin-top:15px;">
+            <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend vulputate ante, quis venenatis risus venenatis molestie. Sed ac sapien hendrerit nibh tristique dictum. Nulla tincidunt vestibulum est. Duis mauris sem, volutpat nec feugiat sit amet, vulputate quis ante. Ut vel massa dui. Integer iaculis turpis ac nisl lacinia volutpat. Nam enim urna, malesuada et gravida in, tempus ac mauris. Nulla sed risus at nisi pharetra aliquet quis nec orci. Cras eleifend vehicula ullamcorper. Vivamus venenatis porttitor nulla, et sagittis nulla tincidunt rutrum. Donec quis lectus metus. Mauris tristique venenatis purus in euismod. Nam vitae orci sed turpis pellentesque feugiat a at velit. Duis rutrum suscipit facilisis. Sed in velit sapien.
             </p>
         </div>

@@ -17,7 +17,7 @@ from threadedcomments.models import ThreadedComment
 @render_to("index.html")
 def index(request):
     title = u"АвтоСерпухов"
-    autocenters = models.AutoCenter.objects.all()
+    autocenters = models.AutoCenter.objects.prefetch_related().all()
     autocentertypes = models.AutoCenterType.objects.all()
     autocenter_cls = models.AutoCenter
     repairs = models.AutoCenter.objects.repairs()
